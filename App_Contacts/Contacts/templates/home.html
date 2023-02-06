@@ -1,0 +1,14 @@
+{% extends 'Layout_Home.html' %}
+
+{% block content %}
+<h1>Sign In</h1>
+    <div class="log_in">
+        {{error}}
+        <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <a href="{% url 'sign_in' %}">Create New Account</a>
+            <button>Log In</button>
+        </form>
+    </div>
+{% endblock %}

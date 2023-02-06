@@ -1,0 +1,49 @@
+{% extends 'Layout_User.html'%}
+
+{% block content %}
+<h1>Yours Contacts:</h1>
+    {% for contact in contacts%}
+    <div class="contact">
+        <ul>
+                <li> 
+                    <h4>Name: {{contact.Name}}</h3>
+                    <p>Number: {{contact.Number}}</p>
+                    <p>Email: {{contact.Email}}</p>
+                </li>
+                <form action="{% url 'delete' contact.id %}">
+                    <button>Delete</button>
+                </form>
+                <form action="{% url 'edit' contact.id %}">
+                    <button>Edit</button>
+                </form>
+        </ul>
+    </div>
+    {% endfor %}
+    <form action="{% url 'add' %}">
+        <button class="create">Create New Contact</button>
+    </form>
+    <style>
+        form{
+            display: inline-block;
+        }
+        .contact{
+            width: 100%;
+            height: 170px;
+            background-color: #e4e299;
+            border: 2px solid #212121;
+            border-radius: 30px;
+            margin-bottom: 1em;
+        }
+        .contact h4{
+            margin-top: .25em;
+        }
+        .contact button{
+        background: #ff6347;
+        border-radius: 10px;
+        }
+        .create{
+            background: #f3a294;
+            border-radius: 10px;
+        }
+    </style>
+{% endblock %}

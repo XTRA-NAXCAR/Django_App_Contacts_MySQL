@@ -1,0 +1,24 @@
+{% extends 'Layout_User.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h1>New Contact:</h1>
+    {{ form }}
+    <div></div>
+    <button>Add contact</button>
+</form>
+<form action="{% url 'user_view' %}">
+    <button>Come Back</button>
+</form>
+<style>
+    button{
+        margin-top: 1em;
+        border-radius: 10px;
+        background: #f3a294;
+    }
+    h1{
+        margin-bottom: 1em;
+    }
+</style>
+{% endblock %}
